@@ -21,11 +21,15 @@
   Projeto back-end para consulta de CEP, consumindo informações do webservice ViaCEP e armazenando em uma base de dados.
 
 ## Funcionalidades
--   Consultar CEP: consulta o cep inserido através do end-point: localhost:8080/cep/-cep a ser consultado.
+-   Consultar CEP: consulta o cep inserido através do end-point: 
+    -   localhost:8080/cep/-cep a ser consultado.
 -   Salva o CEP: ao final da consulta, caso o cep não esteja na base de dados ele é salvo.
--   Buscar por Logradouro: busca os ceps salvos na base de dados pelo logradouro end-point: localhost:8080/logradouro/-logradouro a ser consultado.
--   Buscar por uf: retorna uma lista de todos os ceps salvos na base ao consultar pela uf end-point: localhost:8080/uf/-uf a ser consultada-
--   Buscar por uf paginada: retorna os ceps salvos na base de forma paginada ao consultar pela uf end-point: localhost:8080/ufPaged/-uf a ser consultada-/-numero da pagina-/-quantidade por pagina-
+-   Buscar por Logradouro: busca os ceps salvos na base de dados pelo logradouro end-point: 
+    -   localhost:8080/logradouro/-logradouro a ser consultado.
+-   Buscar por uf: retorna uma lista de todos os ceps salvos na base ao consultar pela uf end-point: 
+    -   localhost:8080/uf/-uf a ser consultada-
+-   Buscar por uf paginada: retorna os ceps salvos na base de forma paginada ao consultar pela uf end-point: 
+    -   localhost:8080/ufPaged/-uf a ser consultada-/-numero da pagina-/-quantidade por pagina-
 
 ## Acesso ao projeto
 
