@@ -1,0 +1,75 @@
+package com.wesLuz.ConsultaCEP.Business;
+
+import java.util.List;
+
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.wesLuz.ConsultaCEP.Model.CEP;
+import com.wesLuz.ConsultaCEP.Repository.CEPRepository;
+
+@Service
+public class CEPBusiness implements ICEPBusiness {
+
+	@Autowired
+	private CEPRepository _repository;
+	
+	@Override
+	public String ValidateCEP(String CEP) {
+		CEP.replaceAll("[^a-zA-Z0-9","");
+		System.out.println(CEP);
+		return CEP;
+	}
+
+	@Override
+	public CEP InsertAddress(String CEPString) {
+		CEP newCEP = new CEP();
+		CEPString = ValidateCEP(CEPString);
+		if(!Exists(CEPString)) {
+			newCEP = ConsultaCEP(CEPString);
+			//_repository.save(newCEP);
+			return newCEP;
+		}
+		return null;
+				//_repository.findByCEP(CEPString);
+	}
+	
+	private CEP ConsultaCEP(String CepString) {
+		
+		ObjectMapper mapper = new ObjectMapper();
+		String url = "https://viacep.com.br/ws/" + CepString + "/json/";
+		try(CloseableHttpClient client = HttpClients.createDefault()) {
+			HttpGet request = new HttpGet(url);
+			CEP response = client.execute(request, httpResponse-> mapper.readValue(httpResponse.getEntity().getContent(), CEP.class));
+			System.out.println(response.getCep());
+			return response;
+		}catch (Exception e) {
+			System.out.println(e);
+			return null;
+		}
+		
+	}
+
+	@Override
+	public CEP FindbyLogradouro(String CEP) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<CEP> FindAllByUf(String uf) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Boolean Exists(String Cep) {
+		return null;
+				_repository.CheckByCEP(Cep);
+	}
+
+}

@@ -1,0 +1,12 @@
+package com.wesLuz.ConsultaCEP.Repository;
+import com.wesLuz.ConsultaCEP.Model.CEP;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+
+public interface CEPRepository  extends JpaRepository<CEP, Integer>{
+
+	@Query("SELECT c FROM cep c WHERE c.cep = :cep")
+	CEP findByCEP(String cep);
+}

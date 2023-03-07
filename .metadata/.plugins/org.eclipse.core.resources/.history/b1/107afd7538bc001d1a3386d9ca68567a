@@ -1,0 +1,12 @@
+package com.wesLuz.ConsultaCEP.Business;
+import java.util.List;
+
+import com.wesLuz.ConsultaCEP.Model.CEP;
+
+public interface ICEPBusiness {
+	public String ValidateCEP(String CEP);
+	public CEP InsertAddress(String CEPString);
+	public CEP FindbyLogradouro(String CEP);
+	public List<CEP> FindAllByUf(String uf);
+	public bool Exists(CEP CEP);
+}

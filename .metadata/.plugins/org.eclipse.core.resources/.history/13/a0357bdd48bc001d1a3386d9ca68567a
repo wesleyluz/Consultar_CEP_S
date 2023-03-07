@@ -1,0 +1,16 @@
+package com.wesLuz.ConsultaCEP.Repository;
+import com.wesLuz.ConsultaCEP.Model.CEP;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Service;
+
+
+public interface CEPRepository  extends JpaRepository<CEP, Integer>{
+	
+	@Query(value = "SELECT case when count(c)>0 then true else false end FROM cep c WHERE c.cep = ?1",nativeQuery = true)
+	Boolean CheckByCEP(String cep);
+	
+	@Query( value = "SELECT c FROM cep c WHERE c.cep = ?1", nativeQuery = true)
+	CEP findByCEP(String cep);
+}

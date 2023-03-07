@@ -1,0 +1,10 @@
+package com.wesLuz.ConsultaCEP.Repository;
+import com.wesLuz.ConsultaCEP.Model.CEP;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
+
+
+public interface CEPRepository  extends JpaRepository<CEP, Integer>{
+	CEP findByCEP(String cep);
+}

@@ -1,0 +1,8 @@
+package com.wesLuz.ConsultaCEP.Repository;
+import com.wesLuz.ConsultaCEP.Model.cep;
+import org.springframework.data.repository.CrudRepository;
+
+
+public interface CepRepository  extends CrudRepository <cep, int>{
+
+}

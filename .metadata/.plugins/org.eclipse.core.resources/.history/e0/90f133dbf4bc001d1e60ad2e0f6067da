@@ -1,0 +1,48 @@
+package com.wesLuz.ConsultaCEP.Controllers;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.wesLuz.ConsultaCEP.Business.CEPBusiness;
+import com.wesLuz.ConsultaCEP.Model.CEP;
+
+@RestController
+@RequestMapping(value="/")
+public class CEPController {
+	
+	@Autowired
+	private CEPBusiness _cepBusiness;
+	
+	@GetMapping(value = "/cep/{cep}")
+	@ResponseBody
+	public CEP InsertCEP(@PathVariable String cep) {
+		return _cepBusiness.InsertAddress(cep);
+	}
+	@GetMapping(value = "/logradouro/{logradouro}")
+	@ResponseBody
+	public CEP findByLogradouro(@RequestParam(value = "logradouro") String logradouro) {
+		return _cepBusiness.FindbyLogradouro(logradouro);
+	}
+	
+	@GetMapping(value = "/uf/")
+	@ResponseBody
+	public List<CEP> findByUF(@RequestParam(value = "uf") String uf) {
+		return _cepBusiness.FindAllByUf(uf);
+	}
+	
+	@GetMapping(value = "/ufPaged/")
+	@ResponseBody
+	public Page<CEP> findByUfPaged(@RequestParam(value = "uf") String uf, @RequestParam(value = "pageNum", required = false, defaultValue = "2") int pageNum,@RequestParam(value = "size") int size){
+		Page<CEP> cepsByUF = _cepBusiness.pageCEPbyUF(uf,pageNum, size); 
+		return cepsByUF;
+	}
+}	
+

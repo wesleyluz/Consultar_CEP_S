@@ -1,0 +1,5 @@
+package com.wesLuz.ConsultaCEP.Business;
+
+public interface ICEPBusiness {
+	public String ValidateCEP(String CEP);
+}

@@ -1,0 +1,8 @@
+package com.wesLuz.ConsultaCEP.Repository;
+import com.wesLuz.ConsultaCEP.Model.CEP;
+import org.springframework.data.repository.CrudRepository;
+
+
+public interface CEPRepository  extends CrudRepository <CEP, Integer>{
+	CEP findByCEP(String cep);
+}
