@@ -44,19 +44,19 @@ No workbench cole o seguinte script:
 create database CEP;
 use CEP;
 CREATE TABLE cep(
-Id          INT auto_increment primary key,
-cep         CHAR(9)       NULL,
-logradouro  VARCHAR(500) NULL,
-complemento VARCHAR(500) NULL,
-bairro      VARCHAR(500) NULL,
-localidade  VARCHAR(500) NULL,
-uf         	CHAR(2)       NULL,
-unidade     BIGINT NULL
+  Id          INT auto_increment primary key,
+  cep         CHAR(9)       NULL,
+  logradouro  VARCHAR(500) NULL,
+  complemento VARCHAR(500) NULL,
+  bairro      VARCHAR(500) NULL,
+  localidade  VARCHAR(500) NULL,
+  uf         	CHAR(2)       NULL,
+  unidade     BIGINT NULL
 );
 ```
 
 ## Tecnologias utilizadas
--   Linguagem: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" /> Java.
--   FrameWork: <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"> Spring.
--   Base de Dados: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" /> MySQL.
+-   `Linguagem`:Java <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="20" height="20"/>
+-   `FrameWork`: Spring <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" width="20" height="20"/> 
+-   `Base de Dados`: MySQL <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" width="20" height="20" />
 -   `IDE`: Spring Tool Suite.
