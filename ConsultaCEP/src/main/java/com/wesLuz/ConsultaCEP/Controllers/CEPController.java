@@ -20,6 +20,7 @@ import com.wesLuz.ConsultaCEP.Model.CEP;
 
 @RestController
 @RequestMapping(value = "/")
+@CrossOrigin
 public class CEPController {
 
 	@Autowired
